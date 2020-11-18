@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <head>
+            <title>Linear Regression</title>
+            <link href="style.css" type="text/css" rel="stylesheet">
+        </head>
+        <body>
+            <nav>
+                <ul>
+                    <li><a href="../../index.html">Home page</a></li>
+                    <li>Linear Regression</li>
+                </ul>
+            </nav>
+            <section>
+                <header>Linear Regression Calculator</header>
+                <p>
+                    Use this calculator to find the line of best fit for
+                    a set of data.<br><br>
+                </p>
+                <p>
+                    Enter a set of data in the text box below. Each line
+                    should contain two values separated by a space or
+                    comma. For instance, you may enter<br>
+                    <textarea readonly=readonly rows="3" cols="2" 
+                     class="center">1 2&#10;2 3&#10;3 5</textarea>
+                    to compute the linear regression line for the points
+                    (1,2), (2,3) and (3,5).
+                </p>
+                <form id="inputForm" method="post">
+                    <label for="coordinates">Enter the coordinates</label><br>
+                    <textarea maxlength="200" id="coordinates" name="coordinates"
+                        cols="30" rows="10"></textarea><br>
+                    <input id="submit" type="submit">
+                </form>
+                <script src = "Regression.js"></script>
+            </section>
+    </head>
+</html>
