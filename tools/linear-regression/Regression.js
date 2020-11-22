@@ -165,7 +165,7 @@ const computeLinearRegression = () =>
 
         const solution = computeCoefficients(coordinates);
 
-        let lineOfBestFit = `${solution.alpha.toString()} + ${solution.beta.toString()}x`; 
+        let lineOfBestFit = `${solution.alpha.toString()} + ${solution.beta.toString()} x`; 
 
         r2Selecter.innerHTML = solution.r2.toString();
         solutionSelecter.innerHTML = lineOfBestFit;

@@ -3,6 +3,15 @@ class Rational
     constructor(numerator, denominator)
     {
         const gcd = greatestCommonDivisor(numerator, denominator);
+        let numer = numerator / gcd;
+        let denom = denominator / gcd;
+
+        // Overflow handler
+        let maximum = Math.max(numer, denom);
+        if (maximum % (2 << 24) !== 0)
+        {
+
+        }
         this._numerator = numerator / gcd;
         this._denominator = denominator / gcd;
     }
@@ -19,7 +28,23 @@ class Rational
 
     toString ()
     {
-        return this.numerator + "/" + this.denominator;
+        if (this.denominator === 1)
+        {
+            return `<div class="number monospace">${this.numerator}</div>`;
+        }
+        else
+        {
+            return `<div class="fraction monospace">
+                <span class="numerator">${this.numerator}</span>
+                <span class="denominator">${this.denominator}</span>
+                </div>`;
+        }
+    }
+
+    truncate ()
+    {
+        this._numerator = this.numerator / 10;
+        this._denominator = this.denominator / 10;
     }
 }
 

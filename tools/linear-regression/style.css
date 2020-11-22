@@ -92,3 +92,21 @@ input:hover {
 .monospace {
     font-family: "Courier New";
 }
+
+.fraction {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.number {
+    display: inline;
+}
+
+.numerator {
+    display: block;
+}
+
+.denominator {
+    display: block;
+    border-top: 1px solid black;
+}
