@@ -1,38 +1,44 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <head>
-            <title>Linear Regression</title>
-            <link href="style.css" type="text/css" rel="stylesheet">
-        </head>
-        <body>
-            <nav>
-                <a href="../../index.html">Home page</a>
-                <a href="./index.html" class="currDir">Linear Regression</a>
-            </nav>
-            <section>
-                <header>Linear Regression Calculator</header>
-                <p>
-                    Use this calculator to find the line of best fit for
-                    a set of data.
-                </p>
-                <p>
-                    Enter a set of data in the text box below. Each line
-                    should contain two values separated by a space or
-                    comma. For instance, you may enter<br>
-                    <textarea readonly=readonly rows="3" cols="2" 
-                     class="example">1 2&#10;2 3&#10;3 5</textarea>
-                    to compute the linear regression line for the points
-                    (1,2), (2,3), and (3,5).
-                </p>
-                <form id="inputForm" method="post">
-                    <label for="coordinates">Enter the coordinates</label><br>
-                    <textarea maxlength="200" id="coordinates" name="coordinates"
-                        cols="30" rows="10"></textarea><br>
-                    <input id="submit" type="submit">
-                </form>
-                <script src = "Regression.js"></script>
-                <script src = "RationalNumbers.js"></script>
-            </section>
+        <title>Linear Regression</title>
+        <link href="style.css" type="text/css" rel="stylesheet">
     </head>
+    <body>
+        <nav>
+            <a href="../../index.html">Home page</a>
+            <a href="./index.html" class="currDir">Linear Regression</a>
+        </nav>
+        <section>
+            <header>Linear Regression Calculator</header>
+            <p>
+                Use this calculator to find the line of best fit for
+                a set of data.
+            </p>
+            <p>
+                Enter a set of data in the text box below. Each line
+                should contain two values separated by a space or
+                comma. For instance, you may enter<br>
+                <textarea readonly=readonly rows="3" cols="2" 
+                    class="example">1 2&#10;2 3&#10;3 5</textarea>
+                to compute the linear regression line for the points
+                <span class="monospace">(1,2), (2,3)</span>, and 
+                <span class="monospace">(3,5)</span>.
+            </p>
+            <form id="inputForm" method="post">
+                <label for="coordinates">Enter the coordinates</label><br>
+                <textarea maxlength="200" id="coordinates" name="coordinates"
+                    cols="30" rows="10"></textarea><br>
+                <input id="submit" type="submit">
+            </form>
+        </section>
+        <section class="solution">
+            <p>
+                The line of best fit is given by: <span id="solution"></span><br><br>
+                r<sup>2</sup> = <span id="r2"></span>
+            </p>
+        </section>
+        <script src = "RationalNumbers.js"></script>
+        <script src = "Regression.js"></script>
+    </body>
 </html>

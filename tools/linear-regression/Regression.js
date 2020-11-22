@@ -1,6 +1,8 @@
 const submitButton = document.querySelector("#submit");
 const inputField = document.querySelector("#coordinates");
 const inputForm = document.querySelector("#inputForm");
+const solutionSelecter = document.querySelector("#solution");
+const r2Selecter = document.querySelector("#r2");
 
 convertStringToRational = (str) =>
 {
@@ -73,48 +75,79 @@ const logCoordinates = (coordinates) =>
     }
 }
 
+const computeResidual = (alpha, beta, x, y) =>
+{
+    const expectedValue = addRationals(alpha, multiplyRationals(beta, x));
+    return subtractRationals(y, expectedValue);
+}
+
 const computeCoefficients = (coordinates) =>
 {
     const numCoordinates = coordinates.length;
     const coefficients = [];
 
-    let xbar = new Rational(0, 1);
-    let ybar = new Rational(0, 1);
+    let xBar = new Rational(0, 1);
+    let yBar = new Rational(0, 1);
 
     // Compute xbar and ybar (average x and y values)
     for (let i = 0; i < numCoordinates; i++)
     {
-        xbar = addRationals(xbar, coordinates[i][0]);
-        ybar = addRationals(ybar, coordinates[i][1]);
-        console.log("ybar: " + ybar.numerator + "/" + ybar.denominator);
+        xBar = addRationals(xBar, coordinates[i][0]);
+        yBar = addRationals(yBar, coordinates[i][1]);
     }
-    console.log("ybar: " + ybar.numerator + "/" + ybar.denominator);
-    xbar = multiplyRationals(xbar, new Rational(1, numCoordinates));
-    ybar = multiplyRationals(ybar, new Rational(1, numCoordinates));
-    console.log("xbar: " + xbar.numerator + "/" + xbar.denominator);
-    console.log("ybar: " + ybar.numerator + "/" + ybar.denominator);
+    xBar = multiplyRationals(xBar, new Rational(1, numCoordinates));
+    yBar = multiplyRationals(yBar, new Rational(1, numCoordinates));
 
     let covariance = new Rational(0, 1);
     for (let i = 0; i < numCoordinates; i++)
     {
-        let xdiff = subtractRationals(coordinates[i][0], xbar);
-        let ydiff = subtractRationals(coordinates[i][1], ybar);
-        covariance = addRationals(covariance, multiplyRationals(xdiff, ydiff));
+        let xDiff = subtractRationals(coordinates[i][0], xBar);
+        let yDiff = subtractRationals(coordinates[i][1], yBar);
+        covariance = addRationals(covariance, multiplyRationals(xDiff, yDiff));
     }
 
-    let variance = new Rational(0, 1);
+    let xVariance = new Rational(0, 1);
+    let yVariance = new Rational(0, 1);
     for (let i = 0; i < numCoordinates; i++)
     {
-        let xdiff = subtractRationals(coordinates[i][0], xbar);
-        variance = addRationals(variance, multiplyRationals(xdiff, xdiff));
+        let xDiff = subtractRationals(coordinates[i][0], xBar);
+        let yDiff = subtractRationals(coordinates[i][1], yBar);
+        xVariance = addRationals(xVariance, multiplyRationals(xDiff, xDiff));
+        yVariance = addRationals(yVariance, multiplyRationals(yDiff, yDiff));
     }
 
-    const beta = divideRationals(covariance, variance);
-    const alpha = subtractRationals(ybar, multiplyRationals(beta, xbar));
-    coefficients.push(beta);
+    const beta = divideRationals(covariance, xVariance);
+    const alpha = subtractRationals(yBar, multiplyRationals(beta, xBar));
+
+    let regressionSumOfSquares = new Rational(0, 1);
+    for (let i = 0; i < numCoordinates; i++)
+    {
+        let residual = computeResidual(alpha, beta, coordinates[i][0], coordinates[i][1]);
+        residual = multiplyRationals(residual, residual);
+        regressionSumOfSquares = addRationals(regressionSumOfSquares, residual);
+    }
+
+    console.log(regressionSumOfSquares);
+    console.log(yVariance);
+
+    let r2;
+    if (yVariance.numerator !== 0)
+    {
+        r2 = divideRationals(regressionSumOfSquares, yVariance);
+        r2 = subtractRationals(new Rational(1, 1), r2);
+    }
+    else
+    {
+        r2 = new Rational(1, 1);
+    }
+
     coefficients.push(alpha);
+    coefficients.push(beta);
+    
     return {
-        coefficients: coefficients
+        alpha: alpha,
+        beta: beta,
+        r2: r2
     };
 }
 
@@ -130,9 +163,12 @@ const computeLinearRegression = () =>
         const coordinates = getCoordinates(rawInput);
         logCoordinates(coordinates);
 
-        const coefficients = computeCoefficients(coordinates);
+        const solution = computeCoefficients(coordinates);
 
-        console.log(coefficients);
+        let lineOfBestFit = `${solution.alpha.toString()} + ${solution.beta.toString()}x`; 
+
+        r2Selecter.innerHTML = solution.r2.toString();
+        solutionSelecter.innerHTML = lineOfBestFit;
     }
     catch(error)
     {
@@ -144,3 +180,5 @@ submitButton.addEventListener("click", computeLinearRegression);
 
 inputForm.addEventListener("submit", (event) => {event.preventDefault();});
 
+
+console.log(computeResidual(new Rational(1, 1), new Rational(1, 1), new Rational(1, 2), new Rational(3, 1)));

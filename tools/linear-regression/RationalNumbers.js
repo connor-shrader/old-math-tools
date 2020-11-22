@@ -16,6 +16,11 @@ class Rational
     {
         return this._denominator;
     }
+
+    toString ()
+    {
+        return this.numerator + "/" + this.denominator;
+    }
 }
 
 const addRationals = (rat1, rat2) =>

@@ -45,7 +45,8 @@ textarea.example {
 nav {
     text-align: center;
     
-    background-color: teal;
+    background-color: darkcyan;
+    border-bottom: 1px black solid;
 }
 
 nav a {
@@ -56,21 +57,18 @@ nav a {
 
     font-size: 16px;
 
-    color: gainsboro;
-    background-color: teal;
+    color: white;
 
     list-style-type: none;
     text-decoration: none;
 }
 
 nav a:hover {
-    color: white;
+    background-color: teal;
 }
 
 nav a.currDir {
     font-weight: bold;
-
-    color: white;
 }
 
 input {
@@ -78,15 +76,19 @@ input {
     margin: 0 auto;
     height: 40px;
     width: 100px;
-    border: 1px teal solid;
+    border: 1px black solid;
     border-radius: 3px;
 
     font-size: 16px;
 
-    color: gainsboro;
-    background-color: teal;
+    color: white;
+    background-color: darkcyan;
 }
 
 input:hover {
-    color: white;
+    background-color: teal;
+}
+
+.monospace {
+    font-family: "Courier New";
 }
