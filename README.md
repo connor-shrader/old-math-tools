@@ -1,6 +1,6 @@
 # math-tools
 
-## About this project
+## About this Project
 
 This project will feature a collection of online calculators related to math.
 My primary goal with this project is to learn HTML, CSS, and JavaScript, which I am currently learning.

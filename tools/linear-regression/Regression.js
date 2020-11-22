@@ -2,11 +2,21 @@ const submitButton = document.querySelector("#submit");
 const inputField = document.querySelector("#coordinates");
 const inputForm = document.querySelector("#inputForm");
 
-convertStringToInteger = (str) =>
+convertStringToRational = (str) =>
 {
     if (!isNaN(str))
     {
-        return Number(str);
+        let power = 1;
+        let num = Number(str);
+        while(true)
+        {
+            console.log(num * power % 1);
+            if (num * power % 1 === 0)
+            {
+                return new Rational(num * power, power);
+            }
+            power *= 10;
+        }
     }
     else
     {
@@ -19,7 +29,7 @@ convertStringToInteger = (str) =>
         }
         else
         {
-            return Number(fraction[0]) / Number(fraction[1]);
+            return new Rational(fraction[0], fraction[1]);
         }
     }
 }
@@ -38,7 +48,7 @@ const getCoordinates = (rawInput) =>
         let numberPair = [];
         for (let j = 0; j < stringPair.length; j++)
         {
-            numberPair.push(convertStringToInteger(stringPair[j]))
+            numberPair.push(convertStringToRational(stringPair[j]))
         }
         if (numberPair.length !== 2)
         {
@@ -52,6 +62,62 @@ const getCoordinates = (rawInput) =>
     return coordinates;
 }
 
+const logCoordinates = (coordinates) =>
+{
+    for (let i = 0; i < coordinates.length; i++)
+    {
+        for (let j = 0; j < coordinates[i].length; j++)
+        {
+            console.log(coordinates[i][j].numerator + " " + coordinates[i][j].denominator);
+        }
+    }
+}
+
+const computeCoefficients = (coordinates) =>
+{
+    const numCoordinates = coordinates.length;
+    const coefficients = [];
+
+    let xbar = new Rational(0, 1);
+    let ybar = new Rational(0, 1);
+
+    // Compute xbar and ybar (average x and y values)
+    for (let i = 0; i < numCoordinates; i++)
+    {
+        xbar = addRationals(xbar, coordinates[i][0]);
+        ybar = addRationals(ybar, coordinates[i][1]);
+        console.log("ybar: " + ybar.numerator + "/" + ybar.denominator);
+    }
+    console.log("ybar: " + ybar.numerator + "/" + ybar.denominator);
+    xbar = multiplyRationals(xbar, new Rational(1, numCoordinates));
+    ybar = multiplyRationals(ybar, new Rational(1, numCoordinates));
+    console.log("xbar: " + xbar.numerator + "/" + xbar.denominator);
+    console.log("ybar: " + ybar.numerator + "/" + ybar.denominator);
+
+    let covariance = new Rational(0, 1);
+    for (let i = 0; i < numCoordinates; i++)
+    {
+        let xdiff = subtractRationals(coordinates[i][0], xbar);
+        let ydiff = subtractRationals(coordinates[i][1], ybar);
+        covariance = addRationals(covariance, multiplyRationals(xdiff, ydiff));
+    }
+
+    let variance = new Rational(0, 1);
+    for (let i = 0; i < numCoordinates; i++)
+    {
+        let xdiff = subtractRationals(coordinates[i][0], xbar);
+        variance = addRationals(variance, multiplyRationals(xdiff, xdiff));
+    }
+
+    const beta = divideRationals(covariance, variance);
+    const alpha = subtractRationals(ybar, multiplyRationals(beta, xbar));
+    coefficients.push(beta);
+    coefficients.push(alpha);
+    return {
+        coefficients: coefficients
+    };
+}
+
 const computeLinearRegression = () =>
 {
     try {
@@ -62,14 +128,11 @@ const computeLinearRegression = () =>
         }
 
         const coordinates = getCoordinates(rawInput);
-        
-        for (let i = 0; i < coordinates.length; i++)
-        {
-            for (let j = 0; j < coordinates[i].length; j++)
-            {
-                console.log(coordinates[i][j]);
-            }
-        }
+        logCoordinates(coordinates);
+
+        const coefficients = computeCoefficients(coordinates);
+
+        console.log(coefficients);
     }
     catch(error)
     {

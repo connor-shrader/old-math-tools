@@ -7,25 +7,23 @@
         </head>
         <body>
             <nav>
-                <ul>
-                    <li><a href="../../index.html">Home page</a></li>
-                    <li>Linear Regression</li>
-                </ul>
+                <a href="../../index.html">Home page</a>
+                <a href="./index.html" class="currDir">Linear Regression</a>
             </nav>
             <section>
                 <header>Linear Regression Calculator</header>
                 <p>
                     Use this calculator to find the line of best fit for
-                    a set of data.<br><br>
+                    a set of data.
                 </p>
                 <p>
                     Enter a set of data in the text box below. Each line
                     should contain two values separated by a space or
                     comma. For instance, you may enter<br>
                     <textarea readonly=readonly rows="3" cols="2" 
-                     class="center">1 2&#10;2 3&#10;3 5</textarea>
+                     class="example">1 2&#10;2 3&#10;3 5</textarea>
                     to compute the linear regression line for the points
-                    (1,2), (2,3) and (3,5).
+                    (1,2), (2,3), and (3,5).
                 </p>
                 <form id="inputForm" method="post">
                     <label for="coordinates">Enter the coordinates</label><br>
@@ -34,6 +32,7 @@
                     <input id="submit" type="submit">
                 </form>
                 <script src = "Regression.js"></script>
+                <script src = "RationalNumbers.js"></script>
             </section>
     </head>
 </html>

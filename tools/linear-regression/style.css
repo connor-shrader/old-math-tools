@@ -1,26 +1,92 @@
 * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    background-color: gray;
+
+    background-color: lightgr;
+
     font-family: Arial;
 }
 
-.center {
-    text-align: center;
-}
-
 header {
+    margin: 30px 0;
     text-align: center;
+
+    font-size: 36px;
+    font-weight: bold;
 }
 
-p {
-    margin: 10px 25%;
+p, label {
+    display: block;
+    margin: 20px auto;
+    padding: 0 auto;
+    min-width: 200px;
     max-width: 800px;
 }
 
 textarea {
     display: block;
-    margin: 10px auto;
-    resize: none;
+    position: relative;
+    margin: 20px auto;
+    padding: 3px;
+
+    font-family: 'Courier New', Courier, monospace;
     font-size: 16px;
+    font-weight: bold;
+
+    /* prevent user from resizing the box */
+    resize: none;
+}
+
+textarea.example {
+    text-align: center;
+}
+
+nav {
+    text-align: center;
+    
+    background-color: teal;
+}
+
+nav a {
+    display: inline-block;
+    margin: auto -4px;
+    padding: 20px 20px;
+    text-align: center;
+
+    font-size: 16px;
+
+    color: gainsboro;
+    background-color: teal;
+
+    list-style-type: none;
+    text-decoration: none;
+}
+
+nav a:hover {
+    color: white;
+}
+
+nav a.currDir {
+    font-weight: bold;
+
+    color: white;
+}
+
+input {
+    display: block;
+    margin: 0 auto;
+    height: 40px;
+    width: 100px;
+    border: 1px teal solid;
+    border-radius: 3px;
+
+    font-size: 16px;
+
+    color: gainsboro;
+    background-color: teal;
+}
+
+input:hover {
+    color: white;
 }
