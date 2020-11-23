@@ -22,8 +22,8 @@
                 <textarea readonly=readonly rows="3" cols="2" 
                     class="example">1 2&#10;2 3&#10;3 5</textarea>
                 to compute the linear regression line for the points
-                <span class="monospace">(1,2), (2,3)</span>, and 
-                <span class="monospace">(3,5)</span>.
+                <span class="math">(1,2), (2,3)</span>, and 
+                <span class="math">(3,5)</span>.
             </p>
             <form id="inputForm" method="post">
                 <label for="coordinates">Enter the coordinates</label><br>
@@ -34,10 +34,11 @@
         </section>
         <section class="solution">
             <p>
-                The line of best fit is given by: <span id="solution" class="monospace"></span><br><br>
-                r<sup>2</sup> = <span id="r2"></span>
+                The line of best fit is given by: <span id="solution" class="math"></span><br><br>
+                <span class="fancy">r<sup>2</sup></span> = <span id="r2"></span>
             </p>
         </section>
+        <script src = "../../global-style.css"></script>
         <script src = "RationalNumbers.js"></script>
         <script src = "Regression.js"></script>
     </body>

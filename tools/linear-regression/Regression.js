@@ -165,7 +165,8 @@ const computeLinearRegression = () =>
 
         const solution = computeCoefficients(coordinates);
 
-        let lineOfBestFit = `${solution.alpha.toString()} + ${solution.beta.toString()} x`; 
+        let lineOfBestFit = `${solution.alpha.toString()} + ${solution.beta.toString()}`
+                            + `<span class="fancy"> x</span>`; 
 
         r2Selecter.innerHTML = solution.r2.toString();
         solutionSelecter.innerHTML = lineOfBestFit;
@@ -177,8 +178,4 @@ const computeLinearRegression = () =>
 }
 
 submitButton.addEventListener("click", computeLinearRegression);
-
 inputForm.addEventListener("submit", (event) => {event.preventDefault();});
-
-
-console.log(computeResidual(new Rational(1, 1), new Rational(1, 1), new Rational(1, 2), new Rational(3, 1)));

@@ -22,6 +22,8 @@ p, label {
     padding: 0 auto;
     min-width: 200px;
     max-width: 800px;
+
+    font-size: 12pt;
 }
 
 textarea {
@@ -89,24 +91,42 @@ input:hover {
     background-color: teal;
 }
 
-.monospace {
-    font-family: "Courier New";
+.math {
+    font-family: "Computer Modern";
+}
+
+.fancy {
+    font-family: "Computer Modern";
+    font-style: italic;
 }
 
 .fraction {
     display: inline-block;
     vertical-align: middle;
+
+    font-family: "Computer Modern";
+    text-align: center;
 }
 
 .number {
     display: inline;
+
+    font-family: "Computer Modern";
+    text-align: center;
 }
 
 .numerator {
     display: block;
+
+    font-family: "Computer Modern";
+    text-align: center;
 }
 
 .denominator {
     display: block;
+
+    font-family: "Computer Modern";
+    text-align: center;
+
     border-top: 1px solid black;
 }
