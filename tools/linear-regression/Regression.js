@@ -1,8 +1,12 @@
 const submitButton = document.querySelector("#submit");
 const inputField = document.querySelector("#coordinates");
 const inputForm = document.querySelector("#inputForm");
-const solutionSelecter = document.querySelector("#solution");
 const r2Selecter = document.querySelector("#r2");
+const solutionSelecter = document.querySelector("#solution");
+
+const fractionButton = document.getElementById("fractionButton");
+const decimalButton = document.getElementById("decimalButton");
+
 
 convertStringToRational = (str) =>
 {
@@ -165,11 +169,25 @@ const computeLinearRegression = () =>
 
         const solution = computeCoefficients(coordinates);
 
-        let lineOfBestFit = `${solution.alpha.toString()} + ${solution.beta.toString()}`
+        if (fractionButton.checked === true)
+        {
+            let lineOfBestFit = `${solution.alpha.toString()} + ${solution.beta.toString()}`
                             + `<span class="fancy"> x</span>`; 
+            
+            solutionSelecter.innerHTML = lineOfBestFit;
+            r2Selecter.innerHTML = solution.r2.toString();
+            
+        }
+        else
+        {
+            let lineOfBestFit = `${solution.alpha.numerator / solution.alpha.denominator}`
+                                + ` + ${solution.beta.numerator / solution.beta.denominator}`
+                                + `<span class="fancy"> x</span>`; 
 
-        r2Selecter.innerHTML = solution.r2.toString();
-        solutionSelecter.innerHTML = lineOfBestFit;
+            solutionSelecter.innerHTML = lineOfBestFit;
+            r2Selecter.innerHTML = `<span class="math">${solution.r2.numerator / solution.r2.denominator}</span>`;
+        }
+        
     }
     catch(error)
     {

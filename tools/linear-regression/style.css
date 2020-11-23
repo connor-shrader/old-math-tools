@@ -16,7 +16,7 @@ header {
     font-weight: bold;
 }
 
-p, label {
+p {
     display: block;
     margin: 20px auto;
     padding: 0 auto;
@@ -73,9 +73,9 @@ nav a.currDir {
     font-weight: bold;
 }
 
-input {
+#submit {
     display: block;
-    margin: 0 auto;
+    margin: 20px auto;
     height: 40px;
     width: 100px;
     border: 1px black solid;
@@ -87,7 +87,7 @@ input {
     background-color: darkcyan;
 }
 
-input:hover {
+#submit:hover {
     background-color: teal;
 }
 
@@ -129,4 +129,13 @@ input:hover {
     text-align: center;
 
     border-top: 1px solid black;
+}
+
+.outputButtons {
+    text-align: center;
+}
+
+.outputButtons div {
+    display: inline;
+    padding: 0 20px;
 }
