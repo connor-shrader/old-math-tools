@@ -7,20 +7,21 @@
 
     font-family: Arial;
     scroll-behavior: smooth;
+    text-size-adjust: none;
 }
 
 header {
     margin: 30px 0;
     text-align: center;
 
-    font-size: 36px;
+    font-size: 32px;
     font-weight: bold;
 }
 
 p {
     display: block;
     margin: 20px auto;
-    padding: 0 auto;
+    padding: 0 20px;
     min-width: 200px;
     max-width: 800px;
 
@@ -93,11 +94,11 @@ nav a.currDir {
 }
 
 .math {
-    font-family: "Computer Modern";
+    font-family: "Computer Modern", serif;
 }
 
 .fancy {
-    font-family: "Computer Modern";
+    font-family: "Computer Modern", serif;
     font-style: italic;
 }
 
@@ -105,28 +106,28 @@ nav a.currDir {
     display: inline-block;
     vertical-align: middle;
 
-    font-family: "Computer Modern";
+    font-family: "Computer Modern", serif;
     text-align: center;
 }
 
 .number {
     display: inline;
 
-    font-family: "Computer Modern";
+    font-family: "Computer Modern", serif;
     text-align: center;
 }
 
 .numerator {
     display: block;
 
-    font-family: "Computer Modern";
+    font-family: "Computer Modern", serif;
     text-align: center;
 }
 
 .denominator {
     display: block;
 
-    font-family: "Computer Modern";
+    font-family: "Computer Modern", serif;
     text-align: center;
 
     border-top: 1px solid black;
@@ -157,10 +158,4 @@ nav a.currDir {
     padding: 5px 0;
     min-width: 200px;
     max-width: 800px;
-}
-
-.outputLine .outputHalf {
-    display: inline-block;
-    max-width: 45%;
-    margin: 0 auto;
 }
