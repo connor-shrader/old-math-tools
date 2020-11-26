@@ -1,10 +1,27 @@
+// Regression.js.
+
+// This file contains all functions used to input and output information
+// for the Linear Regression Calculator. It also uses the Rational class,
+// which can be found in RationalNumbers.js.
+
+// The submit button.
 const submitButton = document.querySelector("#submit");
+
+// The text field used to input coordinates.
 const inputField = document.querySelector("#coordinates");
+
+// The form that contains all inputs.
 const inputForm = document.querySelector("#inputForm");
+
+// The <div>s that will contain the line of best fit and
+// coefficient of determination.
 const equationDiv = document.querySelector("#equation");
 const r2Div = document.querySelector("#r2");
 
+// The <div> that will contain the output.
 const solutionDiv = document.getElementById("solution");
+
+// Radio buttons to select the output type.
 const fractionButton = document.getElementById("fractionButton");
 const decimalButton = document.getElementById("decimalButton");
 
