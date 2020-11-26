@@ -116,3 +116,5 @@ const greatestCommonDivisor = (a, b) =>
         return b;
     }
 }
+
+console.log(greatestCommonDivisor(1.5, 2));

@@ -6,6 +6,7 @@
     background-color: lightgr;
 
     font-family: Arial;
+    scroll-behavior: smooth;
 }
 
 header {
@@ -138,4 +139,28 @@ nav a.currDir {
 .outputButtons div {
     display: inline;
     padding: 0 20px;
+}
+
+#solution {
+    min-width: 200px;
+    max-width: 800px;
+    margin: 30px auto 0 auto;
+
+    text-align: center;
+
+    visibility: hidden;
+}
+
+.outputLine {
+    display: block;
+    margin: 0 auto;
+    padding: 5px 0;
+    min-width: 200px;
+    max-width: 800px;
+}
+
+.outputLine .outputHalf {
+    display: inline-block;
+    max-width: 45%;
+    margin: 0 auto;
 }

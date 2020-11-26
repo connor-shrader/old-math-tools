@@ -39,16 +39,19 @@
                       <label for="decimalButton">Decimal Output</label>
                     </div>
                 </div>
-                <input id="submit" type="submit">
+                <input id="submit" type="submit" value="Calculate">
             </form>
         </section>
-        <section class="solution">
-            <p>
-                The line of best fit is given by: <span id="solution" class="math"></span><br><br>
-                <span class="fancy">r<sup>2</sup></span> = <span id="r2"></span>
-            </p>
+        <section id="solution">
+            <p>The line of best fit is given by:</p>
+            <div class="outputLine math">
+                <div id="equation"></div>
+            </div>
+            <div class="outputLine math">
+                <div id="r2" class="left outputHalf"></div>
+            </div>
         </section>
-        <script src = "../../global-style.css"></script>
+        <link src = "../../global-style.css"></link>
         <script src = "RationalNumbers.js"></script>
         <script src = "Regression.js"></script>
     </body>
