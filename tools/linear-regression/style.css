@@ -44,6 +44,8 @@ textarea {
 
 textarea.example {
     text-align: center;
+    width: 50px;
+    height: 64px;
 }
 
 nav {
