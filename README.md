@@ -3,7 +3,7 @@
 ## About this Project
 
 This project will feature a collection of online calculators related to math.
-My primary goal with this project is to learn HTML, CSS, and JavaScript, which I am currently learning.
+My primary goal with this project is to learn HTML, CSS, and JavaScript, which I have never used before.
 My secondary goal is to create simple yet useful tools for various mathematical problems.
 
 This project only uses HTML, CSS, and JavaScript, as I want to focus on learning front-end development.
