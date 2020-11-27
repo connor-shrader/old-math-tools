@@ -13,30 +13,40 @@
         <section>
             <header>Linear Regression Calculator</header>
             <p>
-                Use this calculator to find the line of best fit for
-                a set of data.
+                This calculator finds the line of best fit for a set of
+                2D data points using the least squares approach. This calculator also computes
+                the coefficient of determination (<span class="fancy">r</span><span class="math"><sup>2</sup></span>),
+                which measures how well the model fits the data.
             </p>
             <p>
-                Enter a set of data in the text box below. Each line
-                should contain two values separated by a space or
-                comma. For instance, to compute the linear regression line for the points
+                Each ordered pair should be entered on a new line, and each coordinate should
+                be separated by a space or comma.
+                For example, to compute the linear regression line for the points
                 <span class="math">(1,2), (2,3)</span>, and 
-                <span class="math">(3,5)</span>, you may enter<br>
+                <span class="math">(3,5)</span>, enter the following:<br>
             </p>
             <div id="exampleContainer">
                 <div id="example">
                     1 2<br>
                     2 3<br>
                     3 5
-                </div><br><br>
+                </div><br>
             </div>
+            <p>
+                You also have the option to show the line of best fit using rational
+                coefficients (fractions) or with decimal values. The coefficient of determination
+                will always be shown using a decimal value.
+            </p>
+            <p>
+                Enter your data below:
+            </p>
             <form id="inputForm" method="post">
                 <textarea maxlength="200" id="coordinates" name="coordinates"
                     cols="30" rows="10"></textarea><br>
                 <div class="outputButtons">
                     <div>
                       <input type="radio" id="fractionButton" name="outputType" value="test" class="radio" checked="checked">
-                      <label for="fractionButton">Fractional Output</label>
+                      <label for="fractionButton">Rational Output</label>
                     </div>
                     <div>
                       <input type="radio" id="decimalButton" name="outputType" value="test" class="radio">
