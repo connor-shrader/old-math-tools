@@ -4,6 +4,9 @@
 // for the Linear Regression Calculator. It also uses the Rational class,
 // which can be found in RationalNumbers.js.
 
+// The navigation
+const navigation = document.getElementById("nav");
+
 // The submit button.
 const submitButton = document.querySelector("#submit");
 
@@ -307,3 +310,15 @@ submitButton.addEventListener("click", computeLinearRegression);
 // Prevents the submit button from being automatically clicked when the
 // page is loaded.
 inputForm.addEventListener("submit", (event) => {event.preventDefault();});
+
+function menuClick() 
+{
+    if (navigation.className === "closed") 
+    {
+        navigation.className = "open";
+    } 
+    else 
+    {
+        navigation.className = "closed";
+    }
+}
