@@ -80,7 +80,7 @@ const getCoordinates = (rawInput) =>
     // Remove any parentheses in the input.
     rawInput = rawInput.replace(/\(+/, "");
     rawInput = rawInput.replace(/\)+/, "");
-    
+
     console.log(rawInput);
     // Separate each row of input.
     const stringRows = rawInput.split("\n");
@@ -276,8 +276,8 @@ const outputToPage = (solution) =>
     equationDiv.innerHTML = lineOfBestFit;
     r2Div.innerHTML = r2;
 
-    solutionDiv.scrollIntoView();
     solutionDiv.style.visibility = "visible";
+    solutionDiv.scrollIntoView();
 }
 
 // This function performs all of the steps needed to process the input
