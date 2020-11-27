@@ -38,14 +38,23 @@ textarea {
     font-size: 16px;
     font-weight: bold;
 
-    /* prevent user from resizing the box */
     resize: none;
 }
 
-textarea.example {
+#exampleContainer {
+    display: block;
     text-align: center;
-    width: 50px;
-    height: 64px;
+}
+
+#example {
+    display: inline-block;
+    text-align: center;
+    border: 1px solid black;
+    padding: 2px 5px;
+
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 16px;
+    font-weight: bold;
 }
 
 nav {
