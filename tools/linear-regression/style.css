@@ -38,6 +38,9 @@ textarea {
     font-size: 16px;
     font-weight: bold;
 
+    border: 2px solid black;
+    border-radius: 5px;
+
     resize: none;
 }
 
@@ -49,7 +52,8 @@ textarea {
 #example {
     display: inline-block;
     text-align: center;
-    border: 1px solid black;
+    border: 2px solid black;
+    border-radius: 5px;
     padding: 2px 5px;
 
     font-family: 'Courier New', Courier, monospace;
@@ -61,7 +65,6 @@ nav {
     text-align: center;
     
     background-color: darkcyan;
-    border-bottom: 1px black solid;
 }
 
 nav a {
