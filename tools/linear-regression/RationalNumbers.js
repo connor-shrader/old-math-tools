@@ -55,6 +55,11 @@ class Rational
 {
     constructor(numerator, denominator)
     {
+        if (denominator < 0)
+        {
+            numerator = -numerator;
+            denominator = -denominator;
+        }
         const gcd = greatestCommonDivisor(numerator, denominator);
         this._numerator = numerator / gcd;
         this._denominator = denominator / gcd;
