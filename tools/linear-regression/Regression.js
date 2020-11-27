@@ -77,6 +77,11 @@ convertStringToRational = (str) =>
 // is a Rational object).
 const getCoordinates = (rawInput) =>
 {
+    // Remove any parentheses in the input.
+    rawInput = rawInput.replace(/\(+/, "");
+    rawInput = rawInput.replace(/\)+/, "");
+    
+    console.log(rawInput);
     // Separate each row of input.
     const stringRows = rawInput.split("\n");
     const coordinates = [];
