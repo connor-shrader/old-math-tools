@@ -59,6 +59,7 @@ nav a {
     {
         float: right;
         display: block;
+        margin-right: 0;
     }
     
     nav.closed a.tool 
