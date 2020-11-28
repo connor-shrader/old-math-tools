@@ -239,20 +239,56 @@ const getLineOfBestFit = (solution) =>
 {
     const alpha = solution.alpha;
     const beta = solution.beta;
+
+    let constantTerm, linearTerm;
+
     let lineOfBestFit;
 
     if (fractionButton.checked)
     {
         // The output will use fractions.
-        lineOfBestFit = `${solution.alpha.toString()} + ${solution.beta.toString()}`
-                        + `<span class="fancy"> x</span>`; 
+        constantTerm = alpha.toString();
+        linearTerm = beta.toString();
+
+        if (alpha.isPositive())
+        {
+            constantTerm = " + " + constantTerm;
+        }
+        else
+        {
+            // If alpha is negative, the toString() method
+            // will automatically place a minus (-) sign.
+            constantTerm = " " + constantTerm;
+        }
+
+        lineOfBestFit = linearTerm + "<span class=\"fancy\"> x</span>"
+                        + constantTerm; 
     }
     else
     {
         // The output will use a decimal value.
-        lineOfBestFit = `${solution.alpha.numerator / solution.alpha.denominator}`
-                + ` + ${solution.beta.numerator / solution.beta.denominator}`
-                + `<span class="fancy"> x</span>`; 
+        if (alpha.numerator > 0)
+        {
+            constantTerm = " + " + (alpha.numerator / alpha.denominator);
+        }
+        else
+        {
+            // &#8722 is HTML for a minus sign.
+            constantTerm = " &#8722 " + (-alpha.numerator / alpha.denominator);
+        }
+
+        if (beta.numerator > 0)
+        {
+            linearTerm = " " + (beta.numerator / beta.denominator);
+        }
+        else
+        {
+            // &#8722 is HTML for a minus sign.
+            linearTerm = " &#8722 " + (-beta.numerator / beta.denominator);
+        }
+
+        lineOfBestFit = linearTerm + `<span class="fancy"> x</span>`
+                        + constantTerm; 
     }
 
     lineOfBestFit = `<span class="fancy">y&nbsp;=&nbsp;</span><span class="math">${lineOfBestFit}</span>`;

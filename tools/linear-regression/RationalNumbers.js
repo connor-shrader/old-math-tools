@@ -60,6 +60,10 @@ class Rational
             numerator = -numerator;
             denominator = -denominator;
         }
+        if (denominator === 0)
+        {
+            throw Error("Denominator is 0. Do you have duplicate x values?")
+        }
         const gcd = greatestCommonDivisor(numerator, denominator);
         this._numerator = numerator / gcd;
         this._denominator = denominator / gcd;
@@ -83,13 +87,23 @@ class Rational
         {
             return `<div class="number">${this.numerator}</div>`;
         }
-        else
+        else if (this.isPositive())
         {
             return `<div class="fraction">
                 <span class="numerator">${this.numerator}</span>
                 <span class="denominator">${this.denominator}</span>
                 </div>`;
         }
+        else
+        {
+            // &#8722 is HTML for a minus sign.
+            return "&#8722 " + negate(this).toString();
+        }
+    }
+
+    isPositive ()
+    {
+        return (this.numerator > 0)
     }
 }
 
@@ -123,4 +137,10 @@ const divideRationals = (rat1, rat2) =>
 {
     rat2 = new Rational(rat2. denominator, rat2.numerator);
     return multiplyRationals(rat1, rat2);
+}
+
+// This method multiplies a rational by -1.
+const negate = (rat) =>
+{
+    return multiplyRationals(rat, new Rational(-1, 1));
 }
