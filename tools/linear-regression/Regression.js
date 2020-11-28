@@ -311,6 +311,7 @@ submitButton.addEventListener("click", computeLinearRegression);
 // page is loaded.
 inputForm.addEventListener("submit", (event) => {event.preventDefault();});
 
+// This button toggles the navigation drop-down for small screens.
 function menuClick() 
 {
     if (navigation.className === "closed") 
