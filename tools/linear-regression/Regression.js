@@ -280,7 +280,7 @@ const outputToPage = (solution) =>
     r2Div.innerHTML = r2;
 
     solutionDiv.style.visibility = "visible";
-    solutionDiv.scrollIntoView();
+    setTimeout(() => {solutionDiv.scrollIntoView();}, 50);
 }
 
 // This function performs all of the steps needed to process the input
