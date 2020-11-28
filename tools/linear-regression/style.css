@@ -19,13 +19,14 @@ header {
 }
 
 nav {
+    display: block;
     text-align: center;
     background-color: darkcyan;
 }
 
 nav a {
     display: inline-block;
-    margin: auto -4px;
+    margin: auto 0;
     padding: 20px 20px;
     text-align: center;
 
@@ -59,7 +60,7 @@ nav a {
     {
         float: right;
         display: block;
-        margin-right: 0;
+        margin-right: 2px;
     }
     
     nav.closed a.tool 
