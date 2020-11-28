@@ -39,9 +39,9 @@ nav a {
 }
 
 /*  The following responsive navigation settings
-    are credited to the following page on w3schools:
-    https://www.w3schools.com/howto/howto_js_topnav_responsive.asp
-*/
+      are credited to the following page on w3schools:
+      https://www.w3schools.com/howto/howto_js_topnav_responsive.asp
+  */
 @media screen and (max-width: 600px) {
   nav {
     text-align: left;
@@ -112,40 +112,8 @@ sup {
   font-style: italic;
 }
 
-textarea {
-  display: block;
-  position: relative;
-  margin: 20px auto;
-  padding: 3px;
-
-  font-family: "Courier New", Courier, monospace;
-  font-size: 16px;
-  font-weight: bold;
-
-  border: 2px solid black;
-  border-radius: 5px;
-
-  resize: none;
-}
-
-#exampleContainer {
-  display: block;
-  text-align: center;
-}
-
-#example {
-  display: inline-block;
-  text-align: center;
-  border: 2px solid black;
-  border-radius: 5px;
-  padding: 2px 5px;
-
-  font-family: "Courier New", Courier, monospace;
-  font-size: 16px;
-  font-weight: bold;
-}
-
 #submit {
+  grid-area: 4 / 1 / 5 / 3;
   display: block;
   margin: 30px auto;
   height: 60px;
@@ -164,53 +132,19 @@ textarea {
   background-color: teal;
 }
 
-.fraction {
-  display: inline-block;
-  vertical-align: middle;
-
-  font-family: "Computer Modern", serif;
-  text-align: center;
+#input {
+  display: grid;
+  justify-content: center;
+  grid-template: 24px 24px 24px / 100px 100px;
+  grid-row-gap: 10px;
 }
 
-.numerator {
-  display: block;
-
-  font-family: "Computer Modern", serif;
-  text-align: center;
+#input div {
+  padding-top: 3px;
+  padding-right: 20px;
+  text-align: right;
 }
 
-.denominator {
-  display: block;
-
-  font-family: "Computer Modern", serif;
-  text-align: center;
-
-  border-top: 1px solid black;
-}
-
-.outputButtons {
-  text-align: center;
-}
-
-.outputButtons div {
-  display: inline;
-  padding: 0 20px;
-}
-
-#solution {
-  min-width: 200px;
-  max-width: 800px;
-  margin: 30px auto 0 auto;
-
-  text-align: center;
-
-  visibility: hidden;
-}
-
-.outputLine {
-  display: block;
-  margin: 0 auto;
-  padding: 5px 0;
-  min-width: 200px;
-  max-width: 800px;
+#input div.field input {
+  width: 100px;
 }

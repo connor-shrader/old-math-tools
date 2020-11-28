@@ -85,7 +85,7 @@ class Rational
     {
         if (this.denominator === 1)
         {
-            return `<div class="number">${this.numerator}</div>`;
+            return `<div class="math">${this.numerator}</div>`;
         }
         else if (this.isPositive())
         {
