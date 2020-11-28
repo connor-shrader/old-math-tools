@@ -27,20 +27,20 @@
         by a given value.
       </p>
       <p>
-        For example, to compute the remainder when
-        35<sup>81</sup> is divided by 100, enter a
-        base of 35, an exponent of 81, and a modulus of 100.
+        For example, to compute the remainder when 35<sup>81</sup> is divided by
+        100, enter a base of 35, an exponent of 81, and a modulus of 100.
       </p>
       <form id="input" method="post">
         <div class="label">Base</div>
-        <input type="number" id="base" name="base" />
+        <input type="number" id="base" name="base" novalidate />
         <div class="label">Exponent</div>
-        <input type="number" id="power" name="power" />
+        <input type="number" id="exponent" name="power" novalidate />
         <div class="label">Modulus</div>
-        <input type="number" id="modulus" name="modulus" />
+        <input type="number" id="modulus" name="modulus" novalidate />
         <input id="submit" type="submit" value="Calculate" />
       </form>
     </section>
+    <section id="solution"></section>
     <link src="../../global-style.css" />
     <script src="./ModularExponentiation.js"></script>
   </body>
