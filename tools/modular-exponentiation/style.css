@@ -148,3 +148,15 @@ sup {
 #input div.field input {
   width: 100px;
 }
+
+/* the following 2 settings remove the arrows on number inputs.
+   Source: https://stackoverflow.com/questions/3790935/can-i-hide-the-html5-number-input-s-spin-box
+*/
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
