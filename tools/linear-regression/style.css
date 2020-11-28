@@ -1,229 +1,222 @@
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    
-    background-color: lightgr;
-    
-    font-family: Arial;
-    scroll-behavior: smooth;
-    text-size-adjust: none;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+
+  background-color: lightgr;
+
+  font-family: Arial;
+  scroll-behavior: smooth;
+  text-size-adjust: none;
 }
 
 header {
-    margin: 30px 0;
-    text-align: center;
-    
-    font-size: 32px;
-    font-weight: bold;
+  margin: 30px 0;
+  text-align: center;
+
+  font-size: 32px;
+  font-weight: bold;
 }
 
 nav {
-    display: block;
-    text-align: center;
-    background-color: darkcyan;
+  display: block;
+  text-align: center;
+  background-color: darkcyan;
 }
 
 nav a {
-    display: inline-block;
-    margin: auto 0;
-    padding: 20px 20px;
-    text-align: center;
+  display: inline-block;
+  margin: auto 0;
+  padding: 20px 20px;
+  text-align: center;
 
-    font-size: 16px;
+  font-size: 16px;
 
-    color: white;
+  color: white;
 
-    list-style-type: none;
-    text-decoration: none;
+  list-style-type: none;
+  text-decoration: none;
 }
 
 /*  The following responsive navigation settings
     are credited to the following page on w3schools:
     https://www.w3schools.com/howto/howto_js_topnav_responsive.asp
 */
-@media screen and (max-width: 600px) 
-{
-    nav 
-    {
-        text-align: left;
-        position: relative;
-    }
+@media screen and (max-width: 600px) {
+  nav {
+    text-align: left;
+    position: relative;
+  }
 
-    nav.open 
-    {
-        align-items: left;
-        position: relative;
-    }
+  nav.open {
+    align-items: left;
+    position: relative;
+  }
 
-    nav a.menu 
-    {
-        float: right;
-        display: block;
-        margin-right: 2px;
-    }
-    
-    nav.closed a.tool 
-    {
-        display: none;
-    }
-    
-    nav.open a.tool, nav.open a.home
-    {
-        display: block;
-        text-align: left;
-    }
+  nav a.menu {
+    float: right;
+    display: block;
+    margin-right: 2px;
+  }
 
-    nav.open a.menu
-    {
-        position: absolute;
-        right: 0;
-        top: 0;
-    }
+  nav.closed a.tool {
+    display: none;
+  }
+
+  nav.open a.tool,
+  nav.open a.home {
+    display: block;
+    text-align: left;
+  }
+
+  nav.open a.menu {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
 }
 
 .menu {
-    display: none;
+  display: none;
 }
 
 nav a:hover {
-    background-color: teal;
+  background-color: teal;
 }
 
 nav a.currDir {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 p {
-    display: block;
-    margin: 20px auto;
-    padding: 0 20px;
-    min-width: 200px;
-    max-width: 800px;
+  display: block;
+  margin: 20px auto;
+  padding: 0 20px;
+  min-width: 200px;
+  max-width: 800px;
 
-    font-size: 12pt;
+  font-size: 12pt;
 }
 
 textarea {
-    display: block;
-    position: relative;
-    margin: 20px auto;
-    padding: 3px;
+  display: block;
+  position: relative;
+  margin: 20px auto;
+  padding: 3px;
 
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 16px;
-    font-weight: bold;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 16px;
+  font-weight: bold;
 
-    border: 2px solid black;
-    border-radius: 5px;
+  border: 2px solid black;
+  border-radius: 5px;
 
-    resize: none;
+  resize: none;
 }
 
 #exampleContainer {
-    display: block;
-    text-align: center;
+  display: block;
+  text-align: center;
 }
 
 #example {
-    display: inline-block;
-    text-align: center;
-    border: 2px solid black;
-    border-radius: 5px;
-    padding: 2px 5px;
+  display: inline-block;
+  text-align: center;
+  border: 2px solid black;
+  border-radius: 5px;
+  padding: 2px 5px;
 
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 16px;
-    font-weight: bold;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 16px;
+  font-weight: bold;
 }
 
 #submit {
-    display: block;
-    margin: 30px auto;
-    height: 60px;
-    width: 140px;
-    border: 1px solid teal;
-    border-radius: 3px;
+  display: block;
+  margin: 30px auto;
+  height: 60px;
+  width: 140px;
+  border: 1px solid teal;
+  border-radius: 3px;
 
-    font-size: 24px;
+  font-size: 24px;
 
-    color: white;
-    background-color: darkcyan;
-    cursor: pointer;
+  color: white;
+  background-color: darkcyan;
+  cursor: pointer;
 }
 
 #submit:hover {
-    background-color: teal;
+  background-color: teal;
 }
 
 .math {
-    font-family: "Computer Modern", serif;
+  font-family: "Computer Modern", serif;
 }
 
 .fancy {
-    font-family: "Computer Modern", serif;
-    font-style: italic;
+  font-family: "Computer Modern", serif;
+  font-style: italic;
 }
 
 .fraction {
-    display: inline-block;
-    vertical-align: middle;
+  display: inline-block;
+  vertical-align: middle;
 
-    font-family: "Computer Modern", serif;
-    text-align: center;
+  font-family: "Computer Modern", serif;
+  text-align: center;
 }
 
 .number {
-    display: inline;
+  display: inline;
 
-    font-family: "Computer Modern", serif;
-    text-align: center;
+  font-family: "Computer Modern", serif;
+  text-align: center;
 }
 
 .numerator {
-    display: block;
+  display: block;
 
-    font-family: "Computer Modern", serif;
-    text-align: center;
+  font-family: "Computer Modern", serif;
+  text-align: center;
 }
 
 .denominator {
-    display: block;
+  display: block;
 
-    font-family: "Computer Modern", serif;
-    text-align: center;
+  font-family: "Computer Modern", serif;
+  text-align: center;
 
-    border-top: 1px solid black;
+  border-top: 1px solid black;
 }
 
 .outputButtons {
-    text-align: center;
+  text-align: center;
 }
 
 .outputButtons div {
-    display: inline;
-    padding: 0 20px;
+  display: inline;
+  padding: 0 20px;
 }
 
 #solution {
-    min-width: 200px;
-    max-width: 800px;
-    margin: 30px auto 0 auto;
+  min-width: 200px;
+  max-width: 800px;
+  margin: 30px auto 0 auto;
 
-    text-align: center;
+  text-align: center;
 
-    visibility: hidden;
+  visibility: hidden;
 }
 
 .outputLine {
-    display: block;
-    margin: 0 auto;
-    padding: 5px 0;
-    min-width: 200px;
-    max-width: 800px;
+  display: block;
+  margin: 0 auto;
+  padding: 5px 0;
+  min-width: 200px;
+  max-width: 800px;
 }
 
 sup {
-    font-size: 11px;
+  font-size: 11px;
 }
-

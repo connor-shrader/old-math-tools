@@ -1,77 +1,101 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Linear Regression</title>
-        <link rel="stylesheet" href="style.css" type="text/css" >
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
-        <nav id="nav" class="closed">
-            <a href="../../index.html" class="home">Home</a>
-            <a href="./index.html" class="currDir tool">Linear Regression</a>
-            <a href="../modular-exponentiation/index.html" class="tool">Modular Exponentiation</a>
-            <a href="javascript:void(0);" class="menu" onclick="menuClick()">
-                <i class="fa fa-bars"></i>
-            </a>
-        </nav>
-        <section>
-            <header>Linear Regression Calculator</header>
-            <p>
-                This calculator finds the line of best fit for a set of
-                2D data points using the least squares approach. This calculator also computes
-                the coefficient of determination (<span class="fancy">r</span><span class="math"><sup>2</sup></span>),
-                which measures how well the model fits the data.
-            </p>
-            <p>
-                Each ordered pair should be entered on a new line, and each value should
-                be separated by a space or comma.
-                For example, to compute the linear regression line for the points
-                <span class="math">(1,2), (2,3)</span>, and 
-                <span class="math">(3,5)</span>, enter the following:<br>
-            </p>
-            <div id="exampleContainer">
-                <div id="example">
-                    1 2<br>
-                    2 3<br>
-                    3 5
-                </div><br>
-            </div>
-            <p>
-                You also have the option to show the line of best fit using rational
-                coefficients (fractions) or with decimal values. The coefficient of determination
-                will always be shown using a decimal value.
-            </p>
-            <p>
-                Enter your data below:
-            </p>
-            <form id="inputForm" method="post">
-                <textarea maxlength="200" id="coordinates" name="coordinates"
-                    cols="30" rows="10"></textarea><br>
-                <div class="outputButtons">
-                    <div>
-                      <input type="radio" id="fractionButton" name="outputType" value="test" class="radio" checked="checked">
-                      <label for="fractionButton">Rational Output</label>
-                    </div>
-                    <div>
-                      <input type="radio" id="decimalButton" name="outputType" value="test" class="radio">
-                      <label for="decimalButton">Decimal Output</label>
-                    </div>
-                </div>
-                <input id="submit" type="submit" value="Calculate">
-            </form>
-        </section>
-        <section id="solution">
-            <p>The line of best fit is given by:</p>
-            <div class="outputLine math">
-                <div id="equation"></div>
-            </div>
-            <div class="outputLine math">
-                <div id="r2"></div>
-            </div>
-        </section>
-        <link src = "../../global-style.css"></link>
-        <script src = "RationalNumbers.js"></script>
-        <script src = "Regression.js"></script>
-    </body>
+  <head>
+    <title>Linear Regression</title>
+    <link rel="stylesheet" href="style.css" type="text/css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <nav id="nav" class="closed">
+      <a href="../../index.html" class="home">Home</a>
+      <a href="./index.html" class="currDir tool">Linear Regression</a>
+      <a href="../modular-exponentiation/index.html" class="tool"
+        >Modular Exponentiation</a
+      >
+      <a href="javascript:void(0);" class="menu" onclick="menuClick()">
+        <i class="fa fa-bars"></i>
+      </a>
+    </nav>
+    <section>
+      <header>Linear Regression Calculator</header>
+      <p>
+        This calculator finds the line of best fit for a set of 2D data points
+        using the least squares approach. This calculator also computes the
+        coefficient of determination (<span class="fancy">r</span
+        ><span class="math"><sup>2</sup></span
+        >), which measures how well the model fits the data.
+      </p>
+      <p>
+        Each ordered pair should be entered on a new line, and each value should
+        be separated by a space or comma. For example, to compute the linear
+        regression line for the points
+        <span class="math">(1,2), (2,3)</span>, and
+        <span class="math">(3,5)</span>, enter the following:<br />
+      </p>
+      <div id="exampleContainer">
+        <div id="example">
+          1 2<br />
+          2 3<br />
+          3 5
+        </div>
+        <br />
+      </div>
+      <p>
+        You also have the option to show the line of best fit using rational
+        coefficients (fractions) or with decimal values. The coefficient of
+        determination will always be shown using a decimal value.
+      </p>
+      <p>Enter your data below:</p>
+      <form id="inputForm" method="post">
+        <textarea
+          maxlength="200"
+          id="coordinates"
+          name="coordinates"
+          cols="30"
+          rows="10"
+        ></textarea
+        ><br />
+        <div class="outputButtons">
+          <div>
+            <input
+              type="radio"
+              id="fractionButton"
+              name="outputType"
+              value="test"
+              class="radio"
+              checked="checked"
+            />
+            <label for="fractionButton">Rational Output</label>
+          </div>
+          <div>
+            <input
+              type="radio"
+              id="decimalButton"
+              name="outputType"
+              value="test"
+              class="radio"
+            />
+            <label for="decimalButton">Decimal Output</label>
+          </div>
+        </div>
+        <input id="submit" type="submit" value="Calculate" />
+      </form>
+    </section>
+    <section id="solution">
+      <p>The line of best fit is given by:</p>
+      <div class="outputLine math">
+        <div id="equation"></div>
+      </div>
+      <div class="outputLine math">
+        <div id="r2"></div>
+      </div>
+    </section>
+    <link src="../../global-style.css" />
+    <script src="RationalNumbers.js"></script>
+    <script src="Regression.js"></script>
+  </body>
 </html>
