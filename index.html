@@ -1,19 +1,29 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Connor Shrader</title>
-        <link href="style.css" type="text/css" rel="stylesheet">
-    </head>
+        <title>Math Rools</title>
+        <link rel="stylesheet" href="./style.css" type="text/css" />
+        <link rel="stylesheet" href="./global-style.css" type="text/css" />
+        <link src="./fonts.css" />
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      </head>
     <body>
-        <nav>
-            <ul>
-                <li>Home page</li>
-                <li><a href="./tools/linear-regression/index.html">Linear Regression</a></li>
-            </ul>
-        </nav>
+        <nav id="nav" class="closed">
+            <a href="../../index.html" class="home currDir">Home</a>
+            <a href="../linear-regression/index.html" class="tool"
+              >Linear Regression</a
+            >
+            <a href="./index.html" class="tool">Modular Exponentiation</a>
+            <a href="javascript:void(0);" class="menu" onclick="menuClick()">
+              <i class="fa fa-bars"></i>
+            </a>
+          </nav>
         <section>
             <header>Hello</header>
-            <script type="text/javascript" src="test.js"></script>
             <article>
                 Welcome to my website!
                 <!--<figure>
@@ -22,5 +32,6 @@
                 </figure>-->
             </article>
         </section>
+        <script src="./Menu.js"></script>
     </body>
 </html>
