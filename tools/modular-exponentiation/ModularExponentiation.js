@@ -54,17 +54,21 @@ const convertTextToNumbers = (inputText) => {
     // This value fits nicely in the text boxes on the page.
     if (baseValue >= biggestInteger) {
         throw Error(
-            "The base is too large. Please use a base below " + biggestInteger
+            "The base is too large. Please use a base below " +
+                biggestInteger +
+                " (1 trillion)"
         );
     } else if (exponentValue >= biggestInteger) {
         throw Error(
             "The exponent is too large. Please use a base below " +
-                biggestInteger
+                biggestInteger +
+                " (1 trillion)"
         );
     } else if (modulusValue >= biggestInteger) {
         throw Error(
             "The modulus is too large. Please use a base below " +
-                biggestInteger
+                biggestInteger +
+                " (1 trillion)"
         );
     }
 
