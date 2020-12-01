@@ -24,33 +24,47 @@ const convertTextToNumbers = (inputText) => {
         throw Error("The modulus field was left empty.");
     }
 
-    const baseValue = Number(baseText);
-    const exponentValue = Number(exponentText);
-    const modulusValue = Number(modulusText);
-
-    if (baseValue < 0 || baseValue % 1 !== 0) {
+    // This if-else chain checks if the inputs are all positive integers.
+    // I removed all digits 0-9 from each input. If the resulting value
+    // is truthy, then the input contains illegal characters.
+    if (baseText.replace(/[0-9]+/, "")) {
         throw Error("The base field is not a positive integer.");
-    } else if (exponentValue < 0 || exponentValue % 1 !== 0) {
+    } else if (exponentText.replace(/[0-9]+/, "")) {
         throw Error("The exponent field is not a positive integer.");
-    } else if (modulusValue < 0 || modulusValue % 1 !== 0) {
+    } else if (modulusText.replace(/[0-9]+/, "")) {
         throw Error("The modulus field is not a positive integer.");
     }
 
-    // Each value cannot be more than 2^26. Because the largest safe
-    // JavaScript integer is 2^53-1, I used 2^26 as the largest integer for
-    // this program. The largest possible value you can get by multiplying two
-    // integers will thus by 2^52.
-    if (baseValue >= 1 << 26) {
+    const baseValue = BigInt(baseText);
+    const exponentValue = BigInt(exponentText);
+    const modulusValue = BigInt(modulusText);
+
+    // This if-else chain checks that all inputs are *positive*
+    if (baseValue <= 0n) {
+        throw Error("The base field is not a positive integer.");
+    } else if (exponentValue <= 0n) {
+        throw Error("The exponent field is not a positive integer.");
+    } else if (modulusValue <= 0n) {
+        throw Error("The modulus field is not a positive integer.");
+    }
+
+    const biggestInteger = BigInt("1000000000000");
+
+    // I set an arbitrary limit of 1 trillion for each input.
+    // This value fits nicely in the text boxes on the page.
+    if (baseValue >= biggestInteger) {
         throw Error(
-            "The base is too large. Please use a base below " + (1 << 26)
+            "The base is too large. Please use a base below " + biggestInteger
         );
-    } else if (exponentValue >= 1 << 26) {
+    } else if (exponentValue >= biggestInteger) {
         throw Error(
-            "The exponent is too large. Please use a base below " + (1 << 26)
+            "The exponent is too large. Please use a base below " +
+                biggestInteger
         );
-    } else if (modulusValue >= 1 << 26) {
+    } else if (modulusValue >= biggestInteger) {
         throw Error(
-            "The modulus is too large. Please use a base below " + (1 << 26)
+            "The modulus is too large. Please use a base below " +
+                biggestInteger
         );
     }
 
@@ -68,18 +82,18 @@ const multiply = (factor1, factor2, modulus) => {
 const computeRemainder = (inputValues) => {
     const { baseValue, exponentValue, modulusValue } = inputValues;
 
-    if (modulusValue === 1) {
-        return 0;
+    if (modulusValue === 1n) {
+        return 0n;
     }
 
-    let result = 1,
+    let result = 1n,
         exponent = exponentValue,
         base = baseValue % modulusValue;
-    while (exponent > 0) {
-        if (exponent % 2 === 1) {
+    while (exponent > 0n) {
+        if (exponent % 2n === 1n) {
             result = multiply(result, base, modulusValue);
         }
-        exponent = exponent >> 1;
+        exponent = exponent >> 1n;
         base = multiply(base, base, modulusValue);
     }
 
@@ -87,12 +101,15 @@ const computeRemainder = (inputValues) => {
 };
 
 const outputToPage = (inputValues, remainder) => {
-    const {baseValue, exponentValue, modulusValue} = inputValues;
-    let str = `${baseValue}<sup>${exponentValue}</sup> = `
-            + ` ${remainder} (mod ${modulusValue})`;
+    const { baseValue, exponentValue, modulusValue } = inputValues;
+    let str =
+        `${baseValue}<sup>${exponentValue}</sup> = ` +
+        ` ${remainder} (mod ${modulusValue})`;
     solutionField.innerHTML = str;
     solutionField.style.visibility = "visible";
-    setTimeout(() => {solutionDiv.scrollIntoView();}, 50);
+    setTimeout(() => {
+        solution.scrollIntoView();
+    }, 50);
 };
 
 computerModularExponentiation = () => {
