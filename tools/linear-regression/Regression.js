@@ -80,11 +80,10 @@ convertStringToRational = (str) =>
 // is a Rational object).
 const getCoordinates = (rawInput) =>
 {
-    // Remove any parentheses in the input.
-    rawInput = rawInput.replace(/\(+/, "");
-    rawInput = rawInput.replace(/\)+/, "");
+    // Remove any illegal characters in the input.
+    rawInput = rawInput.replace(/[^0-9., \n]/g, "");
+    rawInput = rawInput.trim();
 
-    console.log(rawInput);
     // Separate each row of input.
     const stringRows = rawInput.split("\n");
     const coordinates = [];
@@ -93,10 +92,9 @@ const getCoordinates = (rawInput) =>
         // Remove whitespace on other side of the line.
         stringRows[i] = stringRows[i].trim();
 
-        // Separate each number in the line (where spaces or commas
-        // are delimiters). Then, any empty strings are filtered out
-        // (since they are not actual values).
-        let stringPair = stringRows[i].trim().split(new RegExp(" +|,+"))
+        // Separate each number in the line. Then, any empty
+        // strings are filtered out (since they are not actual values).
+        let stringPair = stringRows[i].trim().split(new RegExp("[ ,;]+"))
                          .filter(str => {return str});
 
         let numberPair = [];
@@ -246,10 +244,7 @@ const getLineOfBestFit = (solution) =>
 
     if (fractionButton.checked)
     {
-        // The output will use fractions.
         constantTerm = alpha.toString();
-        linearTerm = beta.toString();
-
         if (alpha.isPositive())
         {
             constantTerm = " + " + constantTerm;
@@ -259,6 +254,24 @@ const getLineOfBestFit = (solution) =>
             // If alpha is negative, the toString() method
             // will automatically place a minus (-) sign.
             constantTerm = " " + constantTerm;
+        }
+
+        if (beta.numerator === 1 && beta.denominator === 1)
+        {
+            // The linear coefficient is just "1", so we don't
+            // print the 1.
+            linearTerm = " "
+        }
+        else if (beta.numerator === -1 && beta.denominator === 1)
+        {
+            // The linear coefficient is -1, so we just print "-"
+
+            // &#8722 is HTML for a minus sign.
+            linearTerm = "&#8722 "
+        }
+        else
+        {
+            linearTerm = beta.toString();
         }
 
         lineOfBestFit = linearTerm + "<span class=\"fancy\"> x</span>"
@@ -277,7 +290,20 @@ const getLineOfBestFit = (solution) =>
             constantTerm = " &#8722 " + (-alpha.numerator / alpha.denominator);
         }
 
-        if (beta.numerator > 0)
+        if (beta.numerator === 1 && beta.denominator === 1)
+        {
+            // The linear coefficient is just "1", so we don't
+            // print the 1.
+            linearTerm = " "
+        }
+        else if (beta.numerator === -1 && beta.denominator === 1)
+        {
+            // The linear coefficient is -1, so we just print "-"
+
+            // &#8722 is HTML for a minus sign.
+            linearTerm = "&#8722 "
+        }
+        else if (beta.numerator > 0)
         {
             linearTerm = " " + (beta.numerator / beta.denominator);
         }
