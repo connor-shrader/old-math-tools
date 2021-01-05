@@ -1,20 +1,17 @@
-# math-tools
+# old-math-tools
+
+A simple website with calculators for linear regression and modular exponentiation.
 
 ## About this Project
 
-This project will feature a collection of online calculators related to math.
-My primary goal with this project is to learn HTML, CSS, and JavaScript, which I have never used before.
-My secondary goal is to create simple yet useful tools for various mathematical problems.
+This project is a basic website with two math-related calculators.
+My primary goal with this project was to learn HTML, CSS, and JavaScript.
+A second goal was to create some simple yet useful mathematical tools.
 
-This project only uses HTML, CSS, and JavaScript, as I want to focus on learning front-end development.
+This project only uses HTML, CSS, and JavaScript, as I wanted to focus on learning front-end development.
 
-The webpage can be accessed at [https://connor-shrader.github.io/Math-Tools/](https://connor-shrader.github.io/Math-Tools/).
-Keep in mind that this project is brand new, and that this is my first extensive project using front-end languages.
+The webpage can be accessed at [https://connor-shrader.github.io/old-math-tools/](https://connor-shrader.github.io/old-math-tools/).
 
-## Planned Tools
+## New math-tools
 
-Some tools that I am thinking of making include:
-
-* Linear Regression (which I can extend to include quadratic regression, and even polynomial interpolation)
-* Modular Exponentiation
-* System of Linear Equations
+I am no longer working on this project. Any future tools that I make will be in my newer [math-tools](https://connor-shrader.github.io/math-tools/) repository. This newer repository uses Python and Flask, which will allow me to make better programs.
