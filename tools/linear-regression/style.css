@@ -92,7 +92,6 @@ textarea:focus {
 
 #solution {
   min-width: 200px;
-  max-width: 800px;
   margin: 30px auto 0 auto;
 
   text-align: center;
@@ -105,5 +104,4 @@ textarea:focus {
   margin: 0 auto;
   padding: 5px 0;
   min-width: 200px;
-  max-width: 800px;
 }

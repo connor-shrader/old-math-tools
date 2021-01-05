@@ -356,7 +356,6 @@ const computeLinearRegression = () =>
             throw Error("Please enter coordinates in the text field.");
         }
         const coordinates = getCoordinates(rawInput);
-        logCoordinates(coordinates);
         const solution = computeCoefficients(coordinates);
         outputToPage(solution);  
     }
